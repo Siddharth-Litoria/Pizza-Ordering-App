@@ -1,0 +1,14 @@
+{% extends 'order/base.html' %}
+{% block body%}
+<div class="container">
+<form action="{% url 'editorder' pizza.id%}" method="post">
+    {% csrf_token %}
+    {{ pizzaform }}
+    <input type="submit" value="Edit Pizza Order">
+
+</form>
+{{note}}
+<br>
+<a href="{% url 'home'%}">back to home page</a>
+</div>
+{% endblock %}

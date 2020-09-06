@@ -1,0 +1,15 @@
+{% extends 'order/base.html' %}
+{% block body%}
+<div class="container">
+<form action="{%url 'pizzas'%}" method="post">
+    {%csrf_token%}
+    {{formset.management_form}}
+
+    {% for form in formset %}
+    {{form}}
+    <br><br>
+    {%endfor%}
+    <input type="submit" value="Order Pizza">
+</form>
+</div>
+{% endblock %}
